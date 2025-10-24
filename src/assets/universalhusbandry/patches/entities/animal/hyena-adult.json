@@ -1,0 +1,44 @@
+[
+    {
+        "side": "server",
+        "op": "add",
+        "file": "game:entities/animal/mammal/hyena-adult.json",
+        "path": "/client/behaviors/-",
+        "value": {
+            "code": "multiply",
+            "enabledByType": {
+                "*-female": true,
+                "*": false
+            }
+        }
+    },
+    {
+        "side": "server",
+        "op": "add",
+        "file": "game:entities/animal/mammal/hyena-adult.json",
+        "path": "/server/behaviors/-",
+        "value": {
+            "code": "multiply",
+            "enabledByType": {
+                "*-female": true,
+                "*": false
+            },
+            "spawnEntityCodes": [
+                {
+                    "code": "hyena-{type}-baby-male"
+                },
+                {
+                    "code": "hyena-{type}-baby-female"
+                }
+            ],
+            "requiresNearbyEntityCode": "hyena-{type}-adult-male",
+            "requiresNearbyEntityRange": 10,
+            "spawnQuantityMin": 1,
+            "spawnQuantityMax": 4,
+            "pregnancyDays": 16,
+            "multiplyCooldownDaysMin": 4,
+            "multiplyCooldownDaysMax": 8,
+            "portionsEatenForMultiply": 8
+        }
+    }
+]

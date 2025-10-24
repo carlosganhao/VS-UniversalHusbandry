@@ -1,0 +1,182 @@
+[
+	{
+		"side": "server",
+		"op": "add",
+		"file": "game:blocktypes/wood/trough-small.json",
+		"path": "/textures/contents-redmeat",
+		"value": { "base": "block/food/pie/fill-pomegranate" }        
+	},
+	{
+		"side": "server",
+		"op": "add",
+		"file": "game:blocktypes/wood/trough-small.json",
+		"path": "/attributes/contentConfig/-",
+		"value":
+		{
+				"code": "redmeat",
+				"content":
+				{
+						"type": "item",
+						"code": "redmeat-*"
+				}, 
+				"quantityPerFillLevel": 1,
+				"maxFillLevels": 8,
+				"shapesPerFillLevel":
+				[
+					"block/wood/trough/small/grainfill1",
+					"block/wood/trough/small/grainfill1",
+					"block/wood/trough/small/grainfill2",
+					"block/wood/trough/small/grainfill2",
+					"block/wood/trough/small/grainfill3",
+					"block/wood/trough/small/grainfill3",
+					"block/wood/trough/small/grainfill4",
+					"block/wood/trough/small/grainfill4"
+				],
+				"textureCode": "contents-redmeat"
+			}
+	},
+	{
+		"side": "server",
+		"op": "add",
+		"file": "game:blocktypes/wood/trough-small.json",
+		"path": "/textures/contents-bushmeat",
+		"value": { "base": "block/food/pie/fill-mixedfruit" }        
+	},
+	{
+		"side": "server",
+		"op": "add",
+		"file": "game:blocktypes/wood/trough-small.json",
+		"path": "/attributes/contentConfig/-",
+		"value":
+		{
+				"code": "bushmeat",
+				"content":
+				{
+						"type": "item",
+						"code": "bushmeat-*"
+				}, 
+				"quantityPerFillLevel": 1,
+				"maxFillLevels": 8,
+				"shapesPerFillLevel":
+				[
+					"block/wood/trough/small/grainfill1",
+					"block/wood/trough/small/grainfill1",
+					"block/wood/trough/small/grainfill2",
+					"block/wood/trough/small/grainfill2",
+					"block/wood/trough/small/grainfill3",
+					"block/wood/trough/small/grainfill3",
+					"block/wood/trough/small/grainfill4",
+					"block/wood/trough/small/grainfill4"
+				],
+				"textureCode": "contents-bushmeat"
+			}
+	},
+	{
+		"side": "server",
+		"op": "add",
+		"file": "game:blocktypes/wood/trough-small.json",
+		"path": "/textures/contents-poultry",
+		"value": { "base": "block/food/pie/fill-poultry" }        
+	},
+	{
+		"side": "server",
+		"op": "add",
+		"file": "game:blocktypes/wood/trough-small.json",
+		"path": "/attributes/contentConfig/-",
+		"value":
+		{
+				"code": "poultry",
+				"content":
+				{
+						"type": "item",
+						"code": "poultry-*"
+				}, 
+				"quantityperfilllevel": 1,
+				"maxfilllevels": 8,
+				"shapesperfilllevel":
+				[
+					"block/wood/trough/small/grainfill1",
+					"block/wood/trough/small/grainfill1",
+					"block/wood/trough/small/grainfill2",
+					"block/wood/trough/small/grainfill2",
+					"block/wood/trough/small/grainfill3",
+					"block/wood/trough/small/grainfill3",
+					"block/wood/trough/small/grainfill4",
+					"block/wood/trough/small/grainfill4"
+				],
+				"texturecode": "contents-poultry"
+			}
+	},
+	{
+		"side": "server",
+		"op": "add",
+		"file": "game:blocktypes/wood/trough-small.json",
+		"path": "/textures/contents-fish",
+		"value": { "base": "block/food/pie/fill-fish" }        
+	},
+	{
+		"side": "server",
+		"op": "add",
+		"file": "game:blocktypes/wood/trough-small.json",
+		"path": "/attributes/contentConfig/-",
+		"value":
+		{
+				"code": "fish",
+				"content":
+				{
+						"type": "item",
+						"code": "fish-*"
+				}, 
+				"quantityperfilllevel": 1,
+				"maxfilllevels": 8,
+				"shapesperfilllevel":
+				[
+					"block/wood/trough/small/grainfill1",
+					"block/wood/trough/small/grainfill1",
+					"block/wood/trough/small/grainfill2",
+					"block/wood/trough/small/grainfill2",
+					"block/wood/trough/small/grainfill3",
+					"block/wood/trough/small/grainfill3",
+					"block/wood/trough/small/grainfill4",
+					"block/wood/trough/small/grainfill4"
+				],
+				"texturecode": "contents-fish"
+			}
+	},
+	{
+		"side": "server",
+		"op": "add",
+		"file": "game:blocktypes/wood/trough-small.json",
+		"path": "/textures/contents-egg",
+		"value": { "base": "block/food/pie/fill-cottagecheese" }        
+	},
+	{
+		"side": "server",
+		"op": "add",
+		"file": "game:blocktypes/wood/trough-small.json",
+		"path": "/attributes/contentConfig/-",
+		"value":
+		{
+				"code": "egg",
+				"content":
+				{
+						"type": "item",
+						"code": "egg-*"
+				}, 
+				"quantityperfilllevel": 1,
+				"maxfilllevels": 8,
+				"shapesperfilllevel":
+				[
+					"block/wood/trough/small/grainfill1",
+					"block/wood/trough/small/grainfill1",
+					"block/wood/trough/small/grainfill2",
+					"block/wood/trough/small/grainfill2",
+					"block/wood/trough/small/grainfill3",
+					"block/wood/trough/small/grainfill3",
+					"block/wood/trough/small/grainfill4",
+					"block/wood/trough/small/grainfill4"
+				],
+				"texturecode": "contents-egg"
+			}
+	}
+]

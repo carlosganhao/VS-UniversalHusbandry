@@ -1,0 +1,54 @@
+[
+    {
+        "side": "server",
+        "op": "add",
+        "file": "game:entities/animal/mammal/raccoon-adult.json",
+        "path": "/client/behaviors/-",
+        "value": {
+            "code": "multiply",
+            "enabledByType": {
+                "*-female": true,
+                "*": false
+            }
+        }
+    },
+    {
+        "side": "server",
+        "op": "add",
+        "file": "game:entities/animal/mammal/raccoon-adult.json",
+        "path": "/attributes/creatureDiet/weightedFoodTags/-",
+        "value": {
+            "weight": 0.9,
+            "code": "fruitmash"
+        }
+    },
+    {
+        "side": "server",
+        "op": "add",
+        "file": "game:entities/animal/mammal/raccoon-adult.json",
+        "path": "/server/behaviors/-",
+        "value": {
+            "code": "multiply",
+            "enabledByType": {
+                "*-female": true,
+                "*": false
+            },
+            "spawnEntityCodes": [
+                {
+                    "code": "raccoon-{type}-baby-male"
+                },
+                {
+                    "code": "raccoon-{type}-baby-female"
+                }
+            ],
+            "requiresNearbyEntityCode": "raccoon-{type}-adult-male",
+            "requiresNearbyEntityRange": 10,
+            "spawnQuantityMin": 1,
+            "spawnQuantityMax": 3,
+            "pregnancyDays": 10,
+            "multiplyCooldownDaysMin": 2,
+            "multiplyCooldownDaysMax": 6,
+            "portionsEatenForMultiply": 6
+        }
+    }
+]

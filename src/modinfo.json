@@ -1,0 +1,11 @@
+{
+	"$schema": "https://moddbcdn.vintagestory.at/schema/modinfo.latest.json",
+	"type": "Content",
+	"modid": "universalhusbandry",
+	"name": "Universal Husbandry",
+	"side": "Universal",
+	"description" : "Lets you breed and domesticate most animals.",
+	"authors": ["cooli2"],
+	"version": "1.0.0",
+	"dependencies": { "game": "1.21.0" }
+}

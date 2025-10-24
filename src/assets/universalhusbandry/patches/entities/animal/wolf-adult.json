@@ -1,0 +1,44 @@
+[
+    {
+        "side": "server",
+        "op": "add",
+        "file": "game:entities/animal/mammal/wolf-adult.json",
+        "path": "/client/behaviors/-",
+        "value": {
+            "code": "multiply",
+            "enabledByType": {
+                "*-female": true,
+                "*": false
+            }
+        }
+    },
+    {
+        "side": "server",
+        "op": "add",
+        "file": "game:entities/animal/mammal/wolf-adult.json",
+        "path": "/server/behaviors/-",
+        "value": {
+            "code": "multiply",
+            "enabledByType": {
+                "*-female": true,
+                "*": false
+            },
+            "spawnEntityCodes": [
+                {
+                    "code": "wolf-{type}-baby-male"
+                },
+                {
+                    "code": "wolf-{type}-baby-female"
+                }
+            ],
+            "requiresNearbyEntityCode": "wolf-{type}-adult-male",
+            "requiresNearbyEntityRange": 10,
+            "spawnQuantityMin": 1,
+            "spawnQuantityMax": 4,
+            "pregnancyDays": 16,
+            "multiplyCooldownDaysMin": 4,
+            "multiplyCooldownDaysMax": 8,
+            "portionsEatenForMultiply": 8
+        }
+    }
+]

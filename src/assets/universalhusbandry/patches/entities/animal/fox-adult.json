@@ -1,0 +1,44 @@
+[
+    {
+        "side": "server",
+        "op": "add",
+        "file": "game:entities/animal/mammal/fox-adult.json",
+        "path": "/client/behaviors/-",
+        "value": {
+            "code": "multiply",
+            "enabledByType": {
+                "*-female": true,
+                "*": false
+            }
+        }
+    },
+    {
+        "side": "server",
+        "op": "add",
+        "file": "game:entities/animal/mammal/fox-adult.json",
+        "path": "/server/behaviors/-",
+        "value": {
+            "code": "multiply",
+            "enabledByType": {
+                "*-female": true,
+                "*": false
+            },
+            "spawnEntityCodes": [
+                {
+                    "code": "fox-{type}-baby-male"
+                },
+                {
+                    "code": "fox-{type}-baby-female"
+                }
+            ],
+            "requiresNearbyEntityCode": "fox-{type}-adult-male",
+            "requiresNearbyEntityRange": 10,
+            "spawnQuantityMin": 1,
+            "spawnQuantityMax": 3,
+            "pregnancyDays": 10,
+            "multiplyCooldownDaysMin": 2,
+            "multiplyCooldownDaysMax": 6,
+            "portionsEatenForMultiply": 4
+        }
+    }
+]

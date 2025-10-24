@@ -1,0 +1,44 @@
+[
+    {
+        "side": "server",
+        "op": "add",
+        "file": "game:entities/animal/mammal/hooved/elk-tamed.json",
+        "path": "/client/behaviors/-",
+        "value": {
+            "code": "multiply",
+            "enabledByType": {
+                "*-female-adult": true,
+                "*": false
+            }
+        }
+    },
+    {
+        "side": "server",
+        "op": "add",
+        "file": "game:entities/animal/mammal/hooved/elk-tamed.json",
+        "path": "/server/behaviors/-",
+        "value": {
+            "code": "multiply",
+            "enabledByType": {
+                "*-female-adult": true,
+                "*": false
+            },
+            "spawnEntityCodes": [
+                {
+                    "code": "deer-elk-baby-male"
+                },
+                {
+                    "code": "deer-elk-baby-female"
+                }
+            ],
+            "requiresNearbyEntityCode": "tameddeer-{type}-male-adult",
+            "requiresNearbyEntityRange": 10,
+            "spawnQuantityMin": 1,
+            "spawnQuantityMax": 1,
+            "pregnancyDays": 30,
+            "multiplyCooldownDaysMin": 8,
+            "multiplyCooldownDaysMax": 16,
+            "portionsEatenForMultiply": 14
+        }
+    }
+]
