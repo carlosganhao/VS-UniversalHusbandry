@@ -1,0 +1,70 @@
+[
+    {
+        "side": "server",
+        "op": "add",
+        "file": "game:entities/animal/mammal/bear-adult.json",
+        "path": "/client/behaviors/-",
+        "value": {
+            "code": "multiply",
+            "enabledByType": {
+                "*-female": true,
+                "*": false
+            }
+        }
+    },
+    {
+        "side": "server",
+        "op": "add",
+        "file": "game:entities/animal/mammal/bear-adult.json",
+        "path": "/server/behaviors/-",
+        "value": {
+            "code": "multiply",
+            "enabledByType": {
+                "*-female": true,
+                "*": false
+            },
+            "spawnEntityCodes": [
+                {
+                    "code": "universalhusbandry:bear-{type}-baby-male"
+                },
+                {
+                    "code": "universalhusbandry:bear-{type}-baby-female"
+                }
+            ],
+            "requiresNearbyEntityCode": "bear-{type}-adult-male",
+            "requiresNearbyEntityRange": 10,
+            "spawnQuantityMin": 1,
+            "spawnQuantityMax": 1,
+            "pregnancyDays": 30,
+            "multiplyCooldownDaysMin": 9,
+            "multiplyCooldownDaysMax": 18,
+            "portionsEatenForMultiply": 16
+        }
+    },
+    {
+        "side": "server",
+        "op": "add",
+        "file": "game:entities/animal/mammal/bear-adult.json",
+        "path": "/server/behaviors/9/aitasks/-",
+        "value": {
+            "code": "seekfoodandeat",
+            "movespeedByType": {
+                "bear-sun-*": 0.01,
+                "bear-black-*": 0.015,
+                "bear-polar-*": 0.019,
+                "bear-brown-*": 0.02,
+                "bear-panda-*": 0.015
+            },
+            "priority": 1.3,
+            "eatItemCategories": ["protein"],
+            "eatSound": "creature/animal-eat1",
+            "eatTime": 1.5,
+            "minduration": 4000,
+            "maxduration": 4000,
+            "animation": "Eat",
+            "animationSpeed": 1,
+            "mincooldownHours": 1,
+            "maxcooldownHours": 4
+        }
+    }
+]

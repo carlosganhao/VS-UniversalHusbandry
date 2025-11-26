@@ -1,0 +1,527 @@
+{
+	"code": "bear",
+	"class": "EntityAgent",
+	"tags": ["animal", "huntable", "predator", "ferocious", "habitat-land"],
+	"weightByType": {
+		"bear-black-*": 252,
+		"bear-brown-*": 505,
+		"bear-sun-*": 57,
+		"bear-panda-*": 105,
+		"bear-polar-*": 705
+	},
+	"variantgroups": [
+		{ "code": "type", "states": ["black", "brown", "sun", "panda", "polar"]},
+		{ "code": "age", "states": ["baby"] },
+		{ "code": "gender", "states": ["male", "female"] }
+	],
+	"canClimbByType": {
+		"bear-polar-*": false,
+		"*": true
+	},
+	"collisionBoxSizeByType": {
+		"*-polar-adult-male": { "x": 1.6, "y": 1.3 },
+		"*-polar-adult-female": { "x": 1.4, "y": 1.2 },
+		
+		"*-sun-adult-male": { "x": 1.15, "y": 1.1 },
+		"*-sun-adult-female": { "x": 1.0, "y": 0.9 },
+		
+		"*-male": { "x": 1.3, "y": 1.2 },
+		"*-female": { "x": 1.25, "y": 1.1 }
+	},
+	"deadCollisionBoxSizeByType": {
+		"*-polar-adult-male": { "x": 1.2, "y": 0.75},
+		"*-polar-adult-female": { "x": 1.1, "y": 0.7 },
+		
+		"*-sun-adult-male": { "x": 0.7, "y": 0.5 },
+		"*-sun-adult-female": { "x": 0.7, "y": 0.5 },
+		
+		"*-male": { "x": 1, "y": 0.7 },
+		"*-female": { "x": 0.9, "y": 0.7 }
+	},	
+	"selectionBoxSizeByType": {
+		"*": { "x": 1.2, "y": 1.2 }
+	},
+	"deadSelectionBoxSizeByType": {
+		"*": { "x": 1.2, "y": 1.2 }
+	},	
+	"knockbackResistanceByType": {
+		"bear-black-*": 0.5,
+		"bear-brown-*": 0.9,
+		"bear-sun-*": 0.5,
+		"bear-panda-*": 0.5,
+		"bear-polar-*": 1
+	},
+	"eyeHeight": 0.95,
+	"swimmingEyeHeight": 1.1,
+	"drops": [],
+	"attributes": {
+		"killedByInfoText": "deadcreature-eaten-large",
+		"handbook": {
+			"groupcode": "creaturegroup-bear-{type}"
+		},
+		"creatureDietByType": {
+			"bear-panda-*": {
+				"weightedFoodTags": [
+					{ "weight": 1, "code": "tastyvegetable" }
+				]
+			},
+			"bear-sun-*": {
+				"weightedFoodTags": [
+					{ "weight": 1, "code": "fruit" }
+				]	
+			},			
+			"*": {
+				"weightedFoodTags": [
+					{ "weight": 1, "code": "meat" }
+				]			
+			}
+		},
+		"trappable": {
+			"small": { "trapChance": 0, "trapDestroyChance": 0.95 },
+			"large": { "trapChance": 0, "trapDestroyChance": 0.5 }
+		}
+	},
+	"client": {
+		"renderer": "Shape",
+		"shape": { "base": "entity/animal/mammal/bear/black-baby" },
+		"textureByType": {
+			"bear-black-*": { "base": "game:entity/animal/mammal/bear/black-adult*" },
+			"bear-brown-*": { "base": "game:entity/animal/mammal/bear/brown-adult1", "alternates": [ { "base": "game:entity/animal/mammal/bear/brown-adult2" }, { "base": "game:entity/animal/mammal/bear/brown-adult3" } ] },
+			"bear-sun-*": { "base": "game:entity/animal/mammal/bear/sun-adult*" },
+			"bear-panda-*": { "base": "game:entity/animal/mammal/bear/panda-adult*" },
+			"bear-polar-*": { "base": "game:entity/animal/mammal/bear/polar-adult*" }
+		},
+		"sizeByType": {
+			"bear-male-black": 1,
+			"bear-male-brown": 1.25,
+			"bear-male-sun": 0.6,
+			"bear-male-panda": 0.8,
+			"bear-male-polar": 1.4,
+
+			"bear-female-black": 0.9,
+			"bear-female-brown": 1.15,
+			"bear-female-sun": 0.5,
+			"bear-female-panda": 0.7,
+			"bear-female-polar": 1.3
+		},
+		"behaviors": [
+			{ "code": "repulseagents" }, 
+			{ "code": "controlledphysics", "stepHeightByType": 
+			{
+				"bear-polar-*": 2.8751,
+				"bear-sun-*": 2.1251,
+				"*": 3.1251
+			}
+			}, 
+			{ "code": "floatupwhenstuck", "onlyWhenDead": true },
+			{ "code": "interpolateposition" },
+			{ "code": "harvestable" },
+			{ "code": "despawn", "minPlayerDistance": 16, "belowLightLevel": 8, "minSeconds": 300, "afterDays": 14 }
+		],
+		"animations": [
+			{
+				"code": "hurt",
+				"animation": "hurt", 
+				"animationSpeed": 2.2,
+				"weight": 10,
+				"blendMode": "AddAverage" 
+			},
+			{
+				"code": "die",
+				"animation": "die", 
+				"animationSpeed": 1.25,
+				"weight": 10,
+				"blendMode": "Average",
+				"triggeredBy": { "onControls": ["dead"] }
+			},
+			{ 
+				"code": "idle", 
+				"animation": "idle",
+				"blendMode": "AddAverage",
+				"easeOutSpeed": 4,
+				"animationSpeedByType": {
+					"bear-black-*": 0.6,
+					"bear-brown-*": 0.6,
+					"bear-sun-*": 0.8,
+					"bear-panda-*": 0.5,
+					"bear-polar-*": 0.4
+				},
+				"triggeredBy": { "defaultAnim": true }
+			},
+			{
+				"code": "sleep", 
+				"animation": "sleep",
+				"easeInSpeed": 4,
+				"easeOutSpeed": 4,
+				"weight": 1.25,
+				"blendMode": "Average" 
+			},
+			{
+				"code": "sit", 
+				"animation": "sit",
+				"easeInSpeed": 4,
+				"easeOutSpeed": 3,
+				"animationSpeedByType": {
+					"bear-black-*": 0.6,
+					"bear-brown-*": 0.6,
+					"bear-sun-*": 0.8,
+					"bear-panda-*": 0.5,
+					"bear-polar-*": 0.4
+				},
+				"supressDefaultAnimation": true,
+				"blendMode": "Average" 
+			},
+			{
+				"code": "stand",
+				"animation": "stand",
+				"easeOutSpeed": 2,
+				"weight": 1,
+				"blendMode": "Average" 
+			},
+			{
+				"code": "lie",
+				"animation": "lie",
+				"animationSpeedByType": {
+					"bear-black-*": 0.3,
+					"bear-brown-*": 0.3,
+					"bear-sun-*": 0.4,
+					"bear-panda-*": 0.25,
+					"bear-polar-*": 0.2
+				},
+				"blendMode": "Average" 
+			},
+			{
+				"code": "walk",
+				"animation": "walk",
+				"supressDefaultAnimation": true,
+				"blendMode": "AddAverage"
+			}
+		]
+	},
+	"server": {
+		"attributes": {
+			"pathfinder": {
+				"minTurnAnglePerSec": 350,
+				"maxTurnAnglePerSec": 650
+			}
+		},
+		"behaviors": [
+			{ "code": "repulseagents" }, 
+			{ "code": "controlledphysics", "stepHeightByType": 
+			{
+				"bear-polar-*": 2.8751,
+				"bear-sun-*": 2.1251,
+				"*": 3.1251
+			}
+			}, 
+			{ "code": "despawn", "minPlayerDistance": 16, "belowLightLevel": 8, "minSeconds": 300, "afterDays": 21 },
+			{ "code": "health", 
+				"maxhealthByType": {
+					"bear-black-*": 22,
+					"bear-brown-*": 32,
+					"bear-sun-*": 16,
+					"bear-panda-*": 18,
+					"bear-polar-*": 34
+				}
+			},
+			{ "code": "deaddecay", "hoursToDecay": 96, "decayedBlock": "carcass-large" },
+			{ "code": "floatupwhenstuck", "onlyWhenDead": true },
+			{ 
+				"code": "grow",
+				"hoursToGrow": 336,
+				"adultEntityCodes": ["bear-{type}-adult-{gender}"]
+			},
+			{ "code": "harvestable", "drops": [
+				{
+					"type": "item", 
+					"code": "bushmeat-raw", 
+					"quantityByType": {
+						"bear-black-*": { "avg": 12, "var": 2 },
+						"bear-brown-*": { "avg": 16, "var": 2 },
+						"bear-sun-*": { "avg": 9, "var": 2 },
+						"bear-panda-*": { "avg": 10, "var": 2 },
+						"bear-polar-*": { "avg": 22, "var": 2 }
+					}
+				},
+				{
+					"type": "item", 
+					"code": "hide-raw-bear-{type}-complete", 
+					"quantity": { "avg": 1, "var": 0 }
+				},
+				{
+					"type": "item", 
+					"code": "fat", 
+					"quantityByType": {
+						"bear-black-*": { "avg": 2, "var": 1 },
+						"bear-brown-*": { "avg": 2, "var": 1 },
+						"bear-sun-*": { "avg": 1, "var": 1 },
+						"bear-panda-*": { "avg": 2, "var": 1 },
+						"bear-polar-*": { "avg": 4, "var": 1 }
+					}
+				}
+				]
+			},
+			{ "code": "breathe" },
+			{ 
+				"code": "emotionstates",
+				"states": [
+					{ "code": "fleeondamage", 
+							"duration": 30, 
+							"chanceByType": {
+								"bear-black-*": 0.95,
+								"bear-brown-*": 0.9,
+								"bear-sun-*": 0.95,
+								"bear-panda-*": 1,
+								"bear-polar-*": 0.9
+							}, 
+							"slot": 2, 
+							"priority": 5, 
+							"accumType": "max", 
+							"whenHealthRelBelow": 0.3 
+					},
+					{ 
+						"code": "saturated", 
+						"duration": 1200, "chance": 1, "slot": 0, "priority": 1, "accumType": "sum",
+						"belowTempDuration": 600,
+						"belowTempThreshold": -5
+					},
+					{ "code": "alarmherdondamage", "chance": 1, "slot": 1, "priority": 1, "accumType": "max" }
+				]
+			},
+			{ 
+				"code": "taskai",
+				"aiCreatureType": "LandCreature",
+				"aitasks": [
+					{
+						"code": "fleeentity",
+						"priority": 1.7,
+						"entityCodes": ["player"],
+						"seekingRange": 20,
+						"animation": "Run",
+						"sound": "creature/bear/flee",
+						"whenInEmotionState": "fleeondamage",
+						"animationSpeedByType": {
+							"bear-sun-*": 1.8,
+							"bear-panda-*": 1.4,
+							"bear-polar-*": 1.3,
+							"bear-brown-*": 1.5,
+							"bear-black-*": 1.5
+						},
+						"movespeedByType": {
+							"bear-sun-*": 0.018,
+							"bear-panda-*": 0.018,
+							"bear-black-*": 0.026,
+							"bear-brown-*": 0.038,
+							"bear-polar-*": 0.04
+						}
+					},
+					{
+						"code": "seekentity",
+						"priority": 1.6,
+						"entityCodesByType": {
+							"bear-panda-*": [],
+							"bear-sun-*": [],
+							"*": ["player", "chicken-*", "hare-*", "fox-*", "raccoon-*", "pig-*", "sheep-*", "deer-*", "goat-*"]
+						},
+						"extraTargetDistance": 0.5,
+						"seekingRange": 20,
+						"belowTempSeekingRange": 25,
+						"belowTempThreshold": -10,
+						"animation": "Run",
+						"sound": "creature/bear/aggro",
+						"whenNotInEmotionState": "saturated",
+						"animationSpeedByType": {
+							"bear-sun-*": 1.8,
+							"bear-panda-*": 1.4,
+							"bear-polar-*": 1.3,
+							"bear-brown-*": 1.5,
+							"bear-black-*": 1.5
+						},
+						"movespeedByType": {
+							"bear-sun-*": 0.018,
+							"bear-panda-*": 0.018,
+							"bear-black-*": 0.026,
+							"bear-brown-*": 0.038,
+							"bear-polar-*": 0.04
+						}
+					},
+					{
+						"code": "meleeattack",
+						"priority": 1.5,
+						"entityCodes": ["player", "chicken-*", "hare-*", "fox-*", "raccoon-*", "pig-*", "sheep-*", "deer-*", "goat-*"],
+						"damageByType": {
+							"bear-black-*": 10,
+							"bear-brown-*": 12,
+							"bear-sun-*": 4,
+							"bear-panda-*": 8,
+							"bear-polar-*": 16
+						},
+						"damageTier": 2,
+						"damageType": "SlashingAttack",
+						"damage": 15,
+						"minDist": 2,
+						"minVerDist": 1.5,
+						"slot": 1,
+						"mincooldown": 1500, 
+						"maxcooldown": 1500, 
+						"attackDurationMs": 800,
+						"damagePlayerAtMs": 500,
+						"animation": "Attack",
+						"animationSpeed": 1,
+						"sound": "creature/bear/attack"
+					},
+					{
+						"code": "fleeentity",
+						"priority": 1.5,
+						"entityCodes": ["player"],
+						"enabledByType": {
+							"bear-panda-*": true,
+							"bear-sun-*": true,
+							"*": false
+						},
+						"seekingRange": 5,
+						"animation": "Run",
+						"animationSpeedByType": {
+							"bear-sun-*": 1.8,
+							"bear-panda-*": 1.4
+						},
+						"movespeedByType": {
+							"bear-sun-*": 0.018,
+							"bear-panda-*": 0.018
+						}
+					},
+					{
+						"code": "getoutofwater",
+						"priority": 1.4,
+						"movespeedByType": {
+							"bear-polar-*": 0.035,
+							"*": 0.015
+						},
+						"animation": "Swim",
+						"animationSpeedByType": {
+							"bear-polar-*": 0.8,
+							"*": 1
+						}
+					},
+					{
+						"code": "stayclosetoentity",
+						"priority": 1.4,
+						"entityCode": "bear-{type}-adult-female",
+						"animationSpeedByType": {
+							"bear-sun-*": 1.8,
+							"bear-panda-*": 1.4,
+							"bear-polar-*": 1.3,
+							"bear-brown-*": 1.5,
+							"bear-black-*": 1.5
+						},
+						"movespeedByType": {
+							"bear-sun-*": 0.018,
+							"bear-panda-*": 0.018,
+							"bear-black-*": 0.026,
+							"bear-brown-*": 0.038,
+							"bear-polar-*": 0.04
+						},
+						"maxDistance": 7,
+						"searchRange": 25,
+						"animation": "Run"
+					},
+					{
+						"code": "idle",
+						"priority": 1.3,
+						"priorityForCancel": 1.35,
+						"minduration": 200000,
+						"maxduration": 800000,
+						"mincooldown": 10000,
+						"maxcooldown": 30000,
+						"animation": "Sleep",
+						"animationSpeed": 0.3,
+						"duringDayTimeFrames": [ { "fromHour": 10, "toHour": 18 }, { "fromHour": 1, "toHour": 3 } ],
+						"stopOnNearbyEntityCodes": ["player"],
+						"stopRange": 10,
+						"stopOnHurt": true
+					},					
+					{
+						"code": "idle",
+						"priority": 1.2,
+						"priorityForCancel": 1.35,
+						"minduration": 4667,
+						"maxduration": 4667,
+						"mincooldown": 80000,
+						"maxcooldown": 500000,
+						"animation": "Stand",
+						"animationSpeed": 0.5
+					},
+					{
+						"code": "idle",
+						"priority": 1.1,
+						"priorityForCancel": 1.35,
+						"minduration": 2500,
+						"maxduration": 2500,
+						"mincooldown": 6000,
+						"maxcooldown": 20000,
+						"animation": "Stand",
+						"animationSpeed": 1.25
+					},
+					{
+						"code": "wander", 
+						"priority": 1.0, 
+						"priorityForCancel": 1.35,
+						"animation": "Walk",
+						"preferredLightLevel": 20,
+						"animationSpeedByType": {
+							"bear-sun-*": 0.8,
+							"bear-black-*": 0.6,
+							"bear-brown-*": 0.6,
+							"bear-panda-*": 0.7,
+							"bear-polar-*": 0.6
+						},
+						"movespeedByType": {
+							"bear-sun-*": 0.01,
+							"bear-black-*": 0.014,
+							"bear-polar-*": 0.02,
+							"bear-brown-*": 0.018,
+							"bear-panda-*": 0.01
+						}
+					},
+					{
+						"code": "idle",
+						"priority": 0.9,
+						"priorityForCancel": 1.35,
+						"minduration": 5000,
+						"maxduration": 30000,
+						"mincooldown": 2000,
+						"maxcooldown": 120000,
+						"animation": "Sit",
+						"supressDefaultAnimation": true,
+						"stopOnNearbyEntityCodes": ["player"],
+						"stopRange": 5
+					},
+					{
+						"code": "idle",
+						"priority": 0.6,
+						"priorityForCancel": 1.35,
+						"minduration": 5000,
+						"maxduration": 30000,
+						"mincooldown": 2000,
+						"maxcooldown": 120000,
+						"animation": "Lie",
+						"stopOnNearbyEntityCodes": ["player"],
+						"stopRange": 5
+					},
+					{ 
+						"code": "lookaround", 
+						"turnSpeedMul": 0.2,
+						"priority": 0.5
+					}
+				]
+			},
+			{ "code": "entitystatetags" }
+		]
+	},
+	"sounds": {
+		"hurt": "creature/bear/hurt",
+		"death": "creature/bear/flee",
+		"idle": "creature/bear/growl*"
+	},
+	"idleSoundChance": 0.1
+}
