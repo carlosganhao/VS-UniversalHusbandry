@@ -66,5 +66,12 @@
             "mincooldownHours": 1,
             "maxcooldownHours": 4
         }
+    },
+    {
+        "side": "universal",
+        "op": "add",
+        "file": "game:entities/animal/mammal/bear-adult.json",
+        "path": "/attributes/creatureDietByType/bear-sun-*/weightedFoodTags/-",
+        "value": { "weight": 1, "code": "fruitmash" }
     }
 ]
