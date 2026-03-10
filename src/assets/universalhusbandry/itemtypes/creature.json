@@ -16,7 +16,11 @@
 		"creature-bear-*": 0.75
 	},
 	"shapeByType": {
-		"creature-bear-*": { "base": "entity/animal/mammal/bear/black-baby" }
+		"creature-bear-black-*": { "base": "game:entity/animal/mammal/bear/black-adult" },
+		"creature-bear-brown-*": { "base": "game:entity/animal/mammal/bear/brown-adult" },
+		"creature-bear-panda-*": { "base": "game:entity/animal/mammal/bear/panda-adult" },
+		"creature-bear-polar-*": { "base": "game:entity/animal/mammal/bear/polar-adult" },
+		"creature-bear-sun-*": { "base": "game:entity/animal/mammal/bear/sun-adult" }
 	},
 	"texturesByType": {
 		"creature-bear-black-*": { "skin": { "base": "game:entity/animal/mammal/bear/black-adult1" }},
@@ -33,14 +37,14 @@
 			"translation": { "x": 0, "y": 0, "z": 0 },
 			"rotation": { "x": 180, "y": -115, "z": 6 },
 			"origin": { "x": 0.5, "y": 0.74, "z": 0.5 },
-			"scale": 0.8
+			"scale": 0.6
 		}
 	},	
 	"tpHandTransformByType": {
 		"*": 	{
 			"translation": { "x": -0.7, "y": -0.8, "z": -0.6 },
 			"rotation": { "x": 1, "y": 172, "z": 26 },
-			"scale": 0.44
+			"scale": 0.25
 		}
 	},
 	"groundTransformByType": {

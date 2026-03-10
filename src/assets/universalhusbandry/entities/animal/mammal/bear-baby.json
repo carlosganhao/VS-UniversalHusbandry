@@ -19,14 +19,14 @@
 		"*": true
 	},
 	"collisionBoxSizeByType": {
-		"*-polar-adult-male": { "x": 1.6, "y": 1.3 },
-		"*-polar-adult-female": { "x": 1.4, "y": 1.2 },
+		"*-polar-adult-male": { "x": 0.8, "y": 0.75 },
+		"*-polar-adult-female": { "x": 0.7, "y": 0.6 },
 		
-		"*-sun-adult-male": { "x": 1.15, "y": 1.1 },
-		"*-sun-adult-female": { "x": 1.0, "y": 0.9 },
+		"*-sun-adult-male": { "x": 0.6, "y": 0.55 },
+		"*-sun-adult-female": { "x": 0.5, "y": 0.45 },
 		
-		"*-male": { "x": 1.3, "y": 1.2 },
-		"*-female": { "x": 1.25, "y": 1.1 }
+		"*-male": { "x": 0.65, "y": 0.6 },
+		"*-female": { "x": 0.6, "y": 0.55 }
 	},
 	"deadCollisionBoxSizeByType": {
 		"*-polar-adult-male": { "x": 1.2, "y": 0.75},
@@ -39,10 +39,18 @@
 		"*-female": { "x": 0.9, "y": 0.7 }
 	},	
 	"selectionBoxSizeByType": {
-		"*": { "x": 1.2, "y": 1.2 }
+		"bear-black-*": { "x": 0.75, "y": 0.9 },
+		"bear-brown-*": { "x": 0.75, "y": 0.9 },
+		"bear-sun-*": { "x": 0.6, "y": 0.6 },
+		"bear-panda-*": { "x": 0.75, "y": 0.9 },
+		"bear-polar-*": { "x": 1.05, "y": 1.45 }
 	},
 	"deadSelectionBoxSizeByType": {
-		"*": { "x": 1.2, "y": 1.2 }
+		"bear-black-*": { "x": 0.6, "y": 0.5 },
+		"bear-brown-*": { "x": 0.6, "y": 0.5 },
+		"bear-sun-*": { "x": 0.55, "y": 0.5 },
+		"bear-panda-*": { "x": 0.6, "y": 0.5 },
+		"bear-polar-*": { "x": 0.65, "y": 0.75 }
 	},	
 	"knockbackResistanceByType": {
 		"bear-black-*": 0.5,
@@ -83,26 +91,11 @@
 	},
 	"client": {
 		"renderer": "Shape",
-		"shape": { "base": "entity/animal/mammal/bear/black-baby" },
-		"textureByType": {
-			"bear-black-*": { "base": "game:entity/animal/mammal/bear/black-adult*" },
-			"bear-brown-*": { "base": "game:entity/animal/mammal/bear/brown-adult1", "alternates": [ { "base": "game:entity/animal/mammal/bear/brown-adult2" }, { "base": "game:entity/animal/mammal/bear/brown-adult3" } ] },
-			"bear-sun-*": { "base": "game:entity/animal/mammal/bear/sun-adult*" },
-			"bear-panda-*": { "base": "game:entity/animal/mammal/bear/panda-adult*" },
-			"bear-polar-*": { "base": "game:entity/animal/mammal/bear/polar-adult*" }
-		},
+		"shape": { "base": "game:entity/animal/mammal/bear/{type}-adult" },
+		"texture": { "base": "game:entity/animal/mammal/bear/{type}-adult*" },
 		"sizeByType": {
-			"bear-male-black": 1,
-			"bear-male-brown": 1.25,
-			"bear-male-sun": 0.6,
-			"bear-male-panda": 0.8,
-			"bear-male-polar": 1.4,
-
-			"bear-female-black": 0.9,
-			"bear-female-brown": 1.15,
-			"bear-female-sun": 0.5,
-			"bear-female-panda": 0.7,
-			"bear-female-polar": 1.3
+			"*-female": 0.45,
+			"*-male": 0.55
 		},
 		"behaviors": [
 			{ "code": "repulseagents" }, 
@@ -194,7 +187,13 @@
 				"code": "walk",
 				"animation": "walk",
 				"supressDefaultAnimation": true,
-				"blendMode": "AddAverage"
+				"blendMode": "AddAverage",
+                "animationSounds": [{"frame": 4, "range": 15, "location": "creature/bear/footsteps/dirt/bear-footstep-dirt*", "pitch": { "avg": 1.0, "var": 0.15 }}, {"frame": 16, "range": 15, "location": "creature/bear/footsteps/dirt/bear-footstep-dirt*", "pitch": { "avg": 1.0, "var": 0.15 }}, {"frame": 19, "range": 15, "location": "creature/bear/footsteps/dirt/bear-footstep-dirt*", "pitch": { "avg": 1.0, "var": 0.15 }}, {"frame": 30, "range": 15, "location": "creature/bear/footsteps/dirt/bear-footstep-dirt*", "pitch": { "avg": 1.0, "var": 0.15 }}]
+            },
+			{
+            	"code": "run",
+				"animation": "run",
+                "animationSounds": [{"frame": 14, "range": 25, "location": "creature/bear/footsteps/dirt/bear-footstep-dirt*", "pitch": { "avg": 1.0, "var": 0.15 }}, {"frame": 15, "range": 25, "location": "creature/bear/footsteps/dirt/bear-footstep-dirt*", "pitch": { "avg": 1.0, "var": 0.15 }}, {"frame":22, "range": 25, "location": "creature/bear/footsteps/dirt/bear-footstep-dirt*", "pitch": { "avg": 1.0, "var": 0.15 }}, {"frame": 26, "range": 25, "location": "creature/bear/footsteps/dirt/bear-footstep-dirt*", "pitch": { "avg": 1.0, "var": 0.15 }}]
 			}
 		]
 	},
@@ -236,28 +235,17 @@
 					"type": "item", 
 					"code": "bushmeat-raw", 
 					"quantityByType": {
-						"bear-black-*": { "avg": 12, "var": 2 },
-						"bear-brown-*": { "avg": 16, "var": 2 },
-						"bear-sun-*": { "avg": 9, "var": 2 },
-						"bear-panda-*": { "avg": 10, "var": 2 },
-						"bear-polar-*": { "avg": 22, "var": 2 }
+						"bear-black-*": { "avg": 3, "var": 2 },
+						"bear-brown-*": { "avg": 4, "var": 2 },
+						"bear-sun-*": { "avg": 2, "var": 2 },
+						"bear-panda-*": { "avg": 2, "var": 2 },
+						"bear-polar-*": { "avg": 6, "var": 2 }
 					}
 				},
 				{
 					"type": "item", 
 					"code": "hide-raw-bear-{type}-complete", 
 					"quantity": { "avg": 1, "var": 0 }
-				},
-				{
-					"type": "item", 
-					"code": "fat", 
-					"quantityByType": {
-						"bear-black-*": { "avg": 2, "var": 1 },
-						"bear-brown-*": { "avg": 2, "var": 1 },
-						"bear-sun-*": { "avg": 1, "var": 1 },
-						"bear-panda-*": { "avg": 2, "var": 1 },
-						"bear-polar-*": { "avg": 4, "var": 1 }
-					}
 				}
 				]
 			},
@@ -301,41 +289,11 @@
 						"sound": "creature/bear/flee",
 						"whenInEmotionState": "fleeondamage",
 						"animationSpeedByType": {
-							"bear-sun-*": 1.8,
-							"bear-panda-*": 1.4,
-							"bear-polar-*": 1.3,
-							"bear-brown-*": 1.5,
-							"bear-black-*": 1.5
-						},
-						"movespeedByType": {
-							"bear-sun-*": 0.018,
-							"bear-panda-*": 0.018,
-							"bear-black-*": 0.026,
-							"bear-brown-*": 0.038,
-							"bear-polar-*": 0.04
-						}
-					},
-					{
-						"code": "seekentity",
-						"priority": 1.6,
-						"entityCodesByType": {
-							"bear-panda-*": [],
-							"bear-sun-*": [],
-							"*": ["player", "chicken-*", "hare-*", "fox-*", "raccoon-*", "pig-*", "sheep-*", "deer-*", "goat-*"]
-						},
-						"extraTargetDistance": 0.5,
-						"seekingRange": 20,
-						"belowTempSeekingRange": 25,
-						"belowTempThreshold": -10,
-						"animation": "Run",
-						"sound": "creature/bear/aggro",
-						"whenNotInEmotionState": "saturated",
-						"animationSpeedByType": {
-							"bear-sun-*": 1.8,
-							"bear-panda-*": 1.4,
-							"bear-polar-*": 1.3,
-							"bear-brown-*": 1.5,
-							"bear-black-*": 1.5
+							"bear-sun-*": 2.3,
+							"bear-panda-*": 1.9,
+							"bear-polar-*": 1.8,
+							"bear-brown-*": 2,
+							"bear-black-*": 2
 						},
 						"movespeedByType": {
 							"bear-sun-*": 0.018,
@@ -347,19 +305,23 @@
 					},
 					{
 						"code": "meleeattack",
-						"priority": 1.5,
+						"priority": 1.65,
 						"entityCodes": ["player", "chicken-*", "hare-*", "fox-*", "raccoon-*", "pig-*", "sheep-*", "deer-*", "goat-*"],
 						"damageByType": {
-							"bear-black-*": 10,
-							"bear-brown-*": 12,
-							"bear-sun-*": 4,
-							"bear-panda-*": 8,
-							"bear-polar-*": 16
+							"bear-black-*": 3,
+							"bear-brown-*": 3,
+							"bear-sun-*": 1,
+							"bear-panda-*": 2,
+							"bear-polar-*": 4
 						},
 						"damageTier": 2,
 						"damageType": "SlashingAttack",
-						"damage": 15,
-						"minDist": 2,
+						"damage": 4,
+						"minDistByType": {
+							"bear-brown-*": 1.2,
+							"bear-polar-*": 1.2,
+							"*": 1
+						},
 						"minVerDist": 1.5,
 						"slot": 1,
 						"mincooldown": 1500, 
@@ -369,6 +331,36 @@
 						"animation": "Attack",
 						"animationSpeed": 1,
 						"sound": "creature/bear/attack"
+					},					
+					{
+						"code": "seekentity",
+						"priority": 1.6,
+						"entityCodesByType": {
+							"bear-panda-*": [],
+							"bear-sun-*": [],
+							"*": ["chicken-*", "hare-*", "fox-*", "raccoon-*", "pig-*", "sheep-*", "deer-*", "goat-*"]
+						},
+						"extraTargetDistance": 0.5,
+						"seekingRange": 20,
+						"belowTempSeekingRange": 25,
+						"belowTempThreshold": -10,
+						"animation": "Run",
+						"sound": "creature/bear/aggro",
+						"whenNotInEmotionState": "saturated",
+						"animationSpeedByType": {
+							"bear-sun-*": 2.3,
+							"bear-panda-*": 1.9,
+							"bear-polar-*": 1.8,
+							"bear-brown-*": 2,
+							"bear-black-*": 2
+						},
+						"movespeedByType": {
+							"bear-sun-*": 0.018,
+							"bear-panda-*": 0.018,
+							"bear-black-*": 0.026,
+							"bear-brown-*": 0.038,
+							"bear-polar-*": 0.04
+						}
 					},
 					{
 						"code": "fleeentity",
@@ -377,13 +369,13 @@
 						"enabledByType": {
 							"bear-panda-*": true,
 							"bear-sun-*": true,
-							"*": false
+							"*": true
 						},
 						"seekingRange": 5,
 						"animation": "Run",
 						"animationSpeedByType": {
-							"bear-sun-*": 1.8,
-							"bear-panda-*": 1.4
+							"bear-sun-*": 2.3,
+							"bear-panda-*": 1.9
 						},
 						"movespeedByType": {
 							"bear-sun-*": 0.018,
@@ -408,11 +400,11 @@
 						"priority": 1.4,
 						"entityCode": "bear-{type}-adult-female",
 						"animationSpeedByType": {
-							"bear-sun-*": 1.8,
-							"bear-panda-*": 1.4,
-							"bear-polar-*": 1.3,
-							"bear-brown-*": 1.5,
-							"bear-black-*": 1.5
+							"bear-sun-*": 2.3,
+							"bear-panda-*": 1.9,
+							"bear-polar-*": 1.8,
+							"bear-brown-*": 2,
+							"bear-black-*": 2
 						},
 						"movespeedByType": {
 							"bear-sun-*": 0.018,
@@ -519,9 +511,9 @@
 		]
 	},
 	"sounds": {
-		"hurt": "creature/bear/hurt",
-		"death": "creature/bear/flee",
-		"idle": "creature/bear/growl*"
+		"hurt": "game:creature/bear/hurt",
+		"death": "game:creature/bear/flee",
+		"idle": { "path": "game:creature/bear/growl*", "pitch": { "avg": 1.3, "var": 0.25 } }
 	},
 	"idleSoundChance": 0.1
 }
